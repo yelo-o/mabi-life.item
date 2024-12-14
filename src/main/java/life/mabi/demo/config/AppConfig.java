@@ -21,7 +21,7 @@ public class AppConfig {
             System.out.println("**** Item Insert 시작");
             List<Item> itemList = IntStream.rangeClosed(1, 10)
                     .mapToObj(i -> Item.builder()
-                            .item_name("Effective Java version " + i + ".0")
+                            .item_name("나이트브링어 " + i + ".0")
                             .description("No." + i + " publishing company")
                             .category("author " + i)
                             .build())
