@@ -40,20 +40,20 @@ public class ItemServiceImpl implements ItemService {
                 PageRequest.of(pageNo, pageSize, Sort.by("id").descending());
 
         Page<Item> itemPage = itemRepository.findAll(pageable);
-        List<Item> listOfBook = itemPage.getContent();
-        List<ItemDto> content = listOfBook.stream()
+        List<Item> listOfItem = itemPage.getContent();
+        List<ItemDto> content = listOfItem.stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
 
-        PageResponse<ItemDto> bookResponse = new PageResponse<>();
-        bookResponse.setContent(content);
-        bookResponse.setPageNo(itemPage.getNumber()); //페이지 번호
-        bookResponse.setPageSize(itemPage.getSize()); //페이지 사이즈
-        bookResponse.setTotalElements(itemPage.getTotalElements()); //전체 엘리멘트 개수
-        bookResponse.setTotalPages(itemPage.getTotalPages()); //전체 엘리멘트 개수/페이지 사이즈
-        bookResponse.setLast(itemPage.isLast());
+        PageResponse<ItemDto> itemResponse = new PageResponse<>();
+        itemResponse.setContent(content);
+        itemResponse.setPageNo(itemPage.getNumber()); //페이지 번호
+        itemResponse.setPageSize(itemPage.getSize()); //페이지 사이즈
+        itemResponse.setTotalElements(itemPage.getTotalElements()); //전체 엘리멘트 개수
+        itemResponse.setTotalPages(itemPage.getTotalPages()); //전체 엘리멘트 개수/페이지 사이즈
+        itemResponse.setLast(itemPage.isLast());
 
-        return bookResponse;
+        return itemResponse;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository
                 .findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Book could not be found"));
+                        new ResourceNotFoundException("Item could not be found"));
     }
 
     //Dto 클래스로 변환

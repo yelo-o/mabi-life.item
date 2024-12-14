@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ItemDto {
     private Long id;
-
     private String item_name;
     private String category;
     private String description;
+    private int bundle_max;
+    private String img_url;
 }

@@ -53,6 +53,6 @@ public class ItemController {
 //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> deleteItem(@PathVariable("id") Long itemId) {
         itemService.deleteItemById(itemId);
-        return new ResponseEntity<>("Book deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Item deleted", HttpStatus.OK);
     }
 }
