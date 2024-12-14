@@ -23,11 +23,11 @@ public class AppConfig {
                     .mapToObj(i -> Item.builder()
                             .item_name("나이트브링어 " + i + ".0")
                             .description("No." + i + " publishing company")
-                            .category("author " + i)
+                            .category("기타 무기 " + i)
                             .build())
                     .collect(Collectors.toList());
             itemRepository.saveAll(itemList);
-            System.out.println("**** book Insert 끝");
+            System.out.println("**** Item Insert 끝");
         };
     }
 }
