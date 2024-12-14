@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mabinogi_items
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+security:
+  jwt:
+    secret-key: ${JWT_SECRET_KEY}
+    expiration: 86400000 # 24??
+    refresh-token:
+      expiration: 604800000 # 7?
+
+api:
+  key:
+    header-name: X-API-KEY
+    valid-keys: ${API_KEYS}
