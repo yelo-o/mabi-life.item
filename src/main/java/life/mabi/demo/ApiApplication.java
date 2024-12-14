@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@SpringBootApplication
 @SpringBootApplication(scanBasePackages = "life.mabi")
-public class DemoApplication {
+public class ApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ApiApplication.class, args);
 	}
 
 }
